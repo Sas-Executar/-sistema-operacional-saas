@@ -16,7 +16,7 @@ alwaysApply: false
 
 ## 2. Arquitetura base
 <Estilo (monolito modular / serviços / serverless), camadas (DDD), principais bounded contexts.>
-- Mapa de contextos: [context-map.md](context-map.md) · Diagramas: [diagrams.md](diagrams.md)
+- Mapa de contextos: [mapa-de-contexto.md](mapa-de-contexto.md) · Diagramas: [diagramas.md](diagramas.md)
 - Decisão: [ADR-XXXX](adr/XXXX-estilo-de-arquitetura.md)
 
 ## 3. Infra

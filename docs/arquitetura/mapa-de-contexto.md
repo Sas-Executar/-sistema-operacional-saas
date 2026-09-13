@@ -30,4 +30,4 @@ alwaysApply: false
 
 ## Diagramas
 Os diagramas de arquitetura de alto nível (contexto C4, containers, mapa de contextos) ficam em
-[`diagrams.md`](./diagrams.md) — gere/atualize com a skill `/diagramar`.
+[`diagramas.md`](./diagramas.md) — gere/atualize com a skill `/diagramar`.
