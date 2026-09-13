@@ -1,3 +1,9 @@
+---
+name: template-especificacao-tecnica
+description: Template resumido de Especificação Técnica. Puxe para uma visão rápida antes de abrir a spec.md executável em specs/.
+alwaysApply: false
+---
+
 # Especificação Técnica — `<nome da funcionalidade>`
 
 > Este template resume a estrutura definida em `AGENTS.md`. Para a especificação executável de

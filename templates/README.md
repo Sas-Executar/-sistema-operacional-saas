@@ -1,3 +1,9 @@
+---
+name: templates-home
+description: Índice de templates/ — modelos de documento em português, prontos para copiar e preencher.
+alwaysApply: false
+---
+
 # `templates/` — Modelos de documento
 
 Templates em português, prontos para copiar e preencher. Complementam (não substituem) os

@@ -1,3 +1,9 @@
+---
+name: template-defeito
+description: Template de registro de Defeito. Puxe antes de abrir uma issue de bug no Linear.
+alwaysApply: false
+---
+
 # Defeito — `<título curto>`
 
 > Use para registrar um bug antes de abrir a issue correspondente no Linear (rótulo

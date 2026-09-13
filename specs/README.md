@@ -1,3 +1,9 @@
+---
+name: specs-home
+description: Índice de specs/ — motor de Spec-Driven Development (SDD) do repositório, instalado via @igoruehara/spec-driven.
+alwaysApply: false
+---
+
 # `specs/` — Especificações executáveis
 
 Esta pasta é o motor de Spec-Driven Development (SDD) do repositório, instalado via

@@ -1,3 +1,9 @@
+---
+name: decisoes-home
+description: Índice de docs/decisoes/ — registro de decisões não puramente técnicas (estratégia, produto, processo, organização).
+alwaysApply: false
+---
+
 # `docs/decisoes/` — Decisões
 
 Registro de decisões **não puramente técnicas** (estratégia, produto, processo, organização do

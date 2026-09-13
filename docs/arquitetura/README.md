@@ -1,3 +1,9 @@
+---
+name: arquitetura-home
+description: Índice de docs/arquitetura/ — visão geral do sistema, mapa de contextos, diagramas, ADRs técnicos e docs de engenharia.
+alwaysApply: false
+---
+
 # `docs/arquitetura/` — Arquitetura
 
 Documentação de arquitetura e engenharia: visão geral do sistema, mapa de contextos, diagramas,

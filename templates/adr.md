@@ -1,3 +1,9 @@
+---
+name: template-adr
+description: Template de ADR. Puxe ao registrar uma decisão difícil de reverter em docs/arquitetura/adr/ ou docs/decisoes/.
+alwaysApply: false
+---
+
 # ADR `NNNN` — `<título curto da decisão>`
 
 > Use em `docs/arquitetura/adr/` (decisões técnicas) ou `docs/decisoes/` (decisões de

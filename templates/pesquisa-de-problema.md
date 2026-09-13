@@ -1,3 +1,9 @@
+---
+name: template-pesquisa-de-problema
+description: Template de Pesquisa de Problema. Puxe ao sintetizar descoberta de cliente/mercado a partir de material bruto.
+alwaysApply: false
+---
+
 # Pesquisa de Problema — `<tema>`
 
 > Preencher em `docs/clientes/` ou `docs/mercado/`, a partir de material bruto em

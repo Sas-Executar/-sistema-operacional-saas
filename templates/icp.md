@@ -1,3 +1,9 @@
+---
+name: template-icp
+description: Template de ICP (Perfil de Cliente Ideal). Puxe ao documentar um segmento de cliente em docs/clientes/.
+alwaysApply: false
+---
+
 # ICP (Perfil de Cliente Ideal) — `<segmento>`
 
 > Preencher em `docs/clientes/`. Adaptado de práticas de ICP (ex.: PM Skills / phuryn

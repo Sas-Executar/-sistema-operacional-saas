@@ -1,3 +1,9 @@
+---
+name: template-visao-do-produto
+description: Template de Visão do Produto. Puxe ao preencher docs/produto/visao.md a partir de corpus classificado.
+alwaysApply: false
+---
+
 # Visão do Produto — `<nome>`
 
 > Preencher em `docs/produto/visao.md`. Toda afirmação sem evidência confirmada deve trazer o

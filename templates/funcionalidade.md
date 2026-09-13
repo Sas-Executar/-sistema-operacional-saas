@@ -1,3 +1,9 @@
+---
+name: template-funcionalidade
+description: Template de descrição de Funcionalidade. Puxe ao documentar uma funcionalidade em docs/produto/.
+alwaysApply: false
+---
+
 # Funcionalidade — `<nome>`
 
 > Preencher em `docs/produto/funcionalidades.md` (uma entrada por funcionalidade) ou como

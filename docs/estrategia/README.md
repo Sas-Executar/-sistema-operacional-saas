@@ -1,3 +1,9 @@
+---
+name: estrategia-home
+description: Índice de docs/estrategia/ — visão de longo prazo, North Star, OKRs e apostas estratégicas.
+alwaysApply: false
+---
+
 # `docs/estrategia/` — Estratégia
 
 Documentação de nível estratégico: visão de longo prazo, North Star, OKRs, apostas e

@@ -1,3 +1,9 @@
+---
+name: operacao-home
+description: Índice de docs/operacao/ — estado de trabalho, aprendizados/gotchas e espelhamento operacional do Linear.
+alwaysApply: false
+---
+
 # `docs/operacao/` — Operação
 
 Documentação de operação do próprio sistema: estado de trabalho, aprendizados/gotchas, e o

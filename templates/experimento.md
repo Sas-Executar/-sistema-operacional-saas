@@ -1,3 +1,9 @@
+---
+name: template-experimento
+description: Template de desenho de Experimento. Puxe ao planejar um teste de hipótese de produto.
+alwaysApply: false
+---
+
 # Experimento — `<nome>`
 
 > Preencher em `docs/produto/` ou junto à spec relacionada. Adaptado de Experiment Spec /

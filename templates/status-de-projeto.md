@@ -1,3 +1,9 @@
+---
+name: template-status-de-projeto
+description: Template de Status de Projeto. Puxe para comunicar status de um Projeto do Linear às partes interessadas.
+alwaysApply: false
+---
+
 # Status de Projeto — `<nome do projeto>`
 
 > Adaptado de Stakeholder Update (PM Skills). Use para comunicar status de um Projeto do Linear

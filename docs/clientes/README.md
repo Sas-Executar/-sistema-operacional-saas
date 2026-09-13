@@ -1,3 +1,9 @@
+---
+name: clientes-home
+description: Índice de docs/clientes/ — ICP, personas, segmentação e pesquisa de problema sobre quem usa (ou deveria usar) o produto.
+alwaysApply: false
+---
+
 # `docs/clientes/` — Clientes
 
 Documentação sobre quem usa (ou deveria usar) o produto: ICP, personas, segmentação, pesquisa

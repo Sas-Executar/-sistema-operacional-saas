@@ -1,3 +1,9 @@
+---
+name: adr-0001-bootstrap-sistema-operacional
+description: ADR — decisões do bootstrap do sistema operacional (Spec Driven + PM Skills + Linear). Puxe ao entender por que a estrutura do repositório é como é.
+alwaysApply: false
+---
+
 # ADR 0001 — Bootstrap do sistema operacional (Spec Driven + PM Skills + Linear)
 
 - **Status:** Aceito

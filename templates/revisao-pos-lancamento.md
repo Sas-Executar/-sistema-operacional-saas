@@ -1,3 +1,9 @@
+---
+name: template-revisao-pos-lancamento
+description: Template de Revisão Pós-Lançamento. Puxe após um lançamento relevante para avaliar resultado.
+alwaysApply: false
+---
+
 # Revisão Pós-Lançamento — `<nome>`
 
 > Adaptado de PMF Assessment / A/B Test Analysis (PM Skills). Use após um lançamento relevante

@@ -1,3 +1,9 @@
+---
+name: linear
+description: Espelhamento operacional do Linear — hierarquia, estados, rótulos e convenções em português. Puxe antes de criar/organizar issues no Linear.
+alwaysApply: false
+---
+
 # Linear — Espelhamento operacional
 
 > Documentação apenas. Nenhuma alteração real foi feita no Linear — não há credenciais

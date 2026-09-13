@@ -1,3 +1,9 @@
+---
+name: template-prd
+description: Template de PRD. Puxe antes de abrir a spec.md executável de uma iniciativa relevante.
+alwaysApply: false
+---
+
 # PRD — `<nome da funcionalidade/iniciativa>`
 
 > Preencher em `docs/produto/` (uma cópia por iniciativa relevante) antes de abrir a

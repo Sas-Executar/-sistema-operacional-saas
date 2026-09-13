@@ -1,3 +1,9 @@
+---
+name: template-lancamento
+description: Template de Plano de Lançamento. Puxe ao planejar o lançamento de uma funcionalidade ou produto.
+alwaysApply: false
+---
+
 # Plano de Lançamento — `<nome>`
 
 > Adaptado de launch-checklist / GTM (PM Skills). Use ao planejar o lançamento de uma

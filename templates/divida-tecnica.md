@@ -1,3 +1,9 @@
+---
+name: template-divida-tecnica
+description: Template de registro de Dívida Técnica. Puxe antes de abrir a issue correspondente no Linear.
+alwaysApply: false
+---
+
 # Dívida Técnica — `<título curto>`
 
 > Use para registrar dívida técnica antes de abrir a issue correspondente no Linear (rótulo

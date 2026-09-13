@@ -1,3 +1,9 @@
+---
+name: mercado-home
+description: Índice de docs/mercado/ — concorrência, posicionamento e ambiente externo ao produto.
+alwaysApply: false
+---
+
 # `docs/mercado/` — Mercado
 
 Documentação sobre o ambiente externo ao produto: concorrência, posicionamento, tamanho de
