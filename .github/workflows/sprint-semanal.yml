@@ -1,0 +1,114 @@
+name: Sprint operacional semanal
+
+# Agendador da folha semanal.
+#
+# Roda no sábado de manhã (09:00 BRT = 12:00 UTC), depois do último dia útil da
+# semana e antes do fechamento. Também pode ser disparado à mão.
+#
+# Sem LINEAR_API_KEY configurado, o job cai no modo fixture e ainda assim gera o
+# PDF — o que mantém o pipeline verificável. Ele diz qual modo usou em vez de
+# fingir que leu as fontes.
+
+on:
+  schedule:
+    - cron: "0 12 * * 6"
+  workflow_dispatch:
+    inputs:
+      sprint:
+        description: "Identificador do sprint (ex.: SEMANA_01)"
+        required: false
+        default: SEMANA_01
+      from:
+        description: "Primeiro dia da semana (YYYY-MM-DD)"
+        required: false
+      to:
+        description: "Último dia da semana (YYYY-MM-DD)"
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  gerar-folha:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: weekly-sprint
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: weekly-sprint/package-lock.json
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Instalar Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Testes de contrato
+        run: npx vitest run
+
+      - name: Definir modo de coleta
+        id: modo
+        env:
+          LINEAR_API_KEY: ${{ secrets.LINEAR_API_KEY }}
+        run: |
+          if [ -n "$LINEAR_API_KEY" ]; then
+            echo "source=linear" >> "$GITHUB_OUTPUT"
+            echo "Coletando do Linear ao vivo."
+          else
+            echo "source=fixture" >> "$GITHUB_OUTPUT"
+            echo "::warning::LINEAR_API_KEY ausente — usando o fixture gravado. A folha NÃO reflete a semana corrente."
+          fi
+
+      - name: Coletar fatos
+        env:
+          LINEAR_API_KEY: ${{ secrets.LINEAR_API_KEY }}
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          npx tsx src/pipeline/cli.ts collect \
+            --source=${{ steps.modo.outputs.source }} \
+            --sprint=${{ inputs.sprint || 'SEMANA_01' }} \
+            ${{ inputs.from && format('--from={0}', inputs.from) || '' }} \
+            ${{ inputs.to && format('--to={0}', inputs.to) || '' }}
+
+      - name: Normalizar com o agente
+        if: env.ANTHROPIC_API_KEY != ''
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          LINEAR_API_KEY: ${{ secrets.LINEAR_API_KEY }}
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          npx tsx agent/run-week.ts \
+            --source=${{ steps.modo.outputs.source }} \
+            --sprint=${{ inputs.sprint || 'SEMANA_01' }}
+
+      - name: Validar o YAML normalizado
+        run: npx tsx src/pipeline/cli.ts validate --sprint=${{ inputs.sprint || 'SEMANA_01' }}
+
+      - name: Construir a aplicação
+        run: npx next build
+
+      - name: Gate de layout e PDF
+        run: npx playwright test
+
+      - name: Gerar o PDF
+        run: npx tsx scripts/export-pdf.ts ${{ inputs.sprint || 'SEMANA_01' }}
+
+      - name: Publicar artefatos
+        uses: actions/upload-artifact@v4
+        with:
+          name: sprint-${{ inputs.sprint || 'SEMANA_01' }}
+          path: |
+            weekly-sprint/out/*.pdf
+            weekly-sprint/out/*.png
+            weekly-sprint/data/*.normalized.yaml
+          if-no-files-found: error
+          retention-days: 90

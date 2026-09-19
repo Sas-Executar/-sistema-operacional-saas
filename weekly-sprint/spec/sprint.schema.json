@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Weekly Operational Sprint",
+  "type": "object",
+  "required": [
+    "sprint"
+  ],
+  "properties": {
+    "sprint": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "id",
+        "title",
+        "period",
+        "week_goal",
+        "days",
+        "review",
+        "next_week"
+      ],
+      "properties": {
+        "schema_version": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "period": {
+          "type": "string"
+        },
+        "week_goal": {
+          "type": "string"
+        },
+        "days": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 7,
+          "items": {
+            "type": "object",
+            "required": [
+              "day",
+              "objective",
+              "actions",
+              "deliverables",
+              "note"
+            ],
+            "properties": {
+              "day": {
+                "type": "string"
+              },
+              "objective": {
+                "type": "string"
+              },
+              "actions": {
+                "type": "array",
+                "minItems": 3,
+                "maxItems": 3,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "index",
+                    "text",
+                    "ref"
+                  ],
+                  "properties": {
+                    "index": {
+                      "type": "string"
+                    },
+                    "text": {
+                      "type": "string"
+                    },
+                    "ref": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "deliverables": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 3,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "text"
+                  ],
+                  "properties": {
+                    "text": {
+                      "type": "string"
+                    },
+                    "evidence_ref": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "note": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "review": {
+          "type": "object"
+        },
+        "next_week": {
+          "type": "object"
+        },
+        "compliance": {
+          "type": "object"
+        }
+      }
+    }
+  }
+}

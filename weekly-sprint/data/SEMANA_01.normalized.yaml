@@ -1,0 +1,147 @@
+sprint:
+  schema_version: 1.1.0
+  id: SEMANA_01
+  title: Sprint operacional — Semana 01
+  period: 14–19 set
+  week_goal: Fechar Fase Zero; destravar quatro betas
+  days:
+  - day: SEG 14
+    objective: Fechar corpus e controle da Fase Zero
+    actions:
+    - index: '01'
+      text: Publicar matriz e checkpoint de retomada
+      ref: EXE-59
+    - index: '02'
+      text: Verificar espelhos e referências externas
+      ref: EXE-60
+    - index: '03'
+      text: Inventariar variáveis por app e pacote
+      ref: EXE-61
+    deliverables:
+    - text: Matriz publicada
+      evidence_ref: EXE-59
+    - text: D07-PH-1400 encerrada
+      evidence_ref: D07-PH-1400
+    note: Sem pré-requisito pendente
+  - day: TER 15
+    objective: Mapear ambientes sem expor segredo
+    actions:
+    - index: '01'
+      text: Confirmar ambiente de cada variável
+      ref: EXE-62
+    - index: '02'
+      text: Comparar schema sem expor segredos
+      ref: EXE-63
+    - index: '03'
+      text: Testar credenciais sem efeito financeiro
+      ref: EXE-64
+    deliverables:
+    - text: Ambientes mapeados
+      evidence_ref: EXE-62
+    - text: Segredos não expostos
+      evidence_ref: EXE-63
+    note: Executar App Fase Zero
+  - day: QUA 16
+    objective: Lançar Blog TDAH Adulto em beta
+    actions:
+    - index: '01'
+      text: Registrar decisões humanas pendentes
+      ref: EXE-65
+    - index: '02'
+      text: Recuperar CMS de cada blog
+      ref: EXE-121
+    - index: '03'
+      text: Recuperar pricing e planos originais
+      ref: EXE-66
+    deliverables:
+    - text: CMS Blog mapeado
+      evidence_ref: EXE-121
+    - text: D07-PH-1401 encerrada
+      evidence_ref: D07-PH-1401
+    note: Blog paralelo; pré-requisito ainda aberto
+  - day: QUI 17
+    objective: Fechar orçamento e identidade de marca
+    actions:
+    - index: '01'
+      text: Consolidar CAPEX e OPEX sem duplicar
+      ref: EXE-67
+    - index: '02'
+      text: Relacionar identidade visual e direitos
+      ref: EXE-68
+    - index: '03'
+      text: Preparar dados institucionais restritos
+      ref: EXE-69
+    deliverables:
+    - text: Orçamento fechado
+      evidence_ref: EXE-67
+    - text: Identidade visual relacionada
+      evidence_ref: EXE-68
+    note: Campanha Beta sem fase definida
+  - day: SEX 18
+    objective: Decidir identidade da Vera e liberar release
+    actions:
+    - index: '01'
+      text: Fechar escopo e autorização de release
+      ref: EXE-70
+    - index: '02'
+      text: Resolver nome e domínio da Vera
+      ref: EXE-131
+    - index: '03'
+      text: Vincular fase, commit e evidência por ID
+      ref: EXE-71
+    deliverables:
+    - text: D07-PH-1402 encerrada
+      evidence_ref: D07-PH-1402
+    - text: Nome Vera decidido
+      evidence_ref: EXE-131
+    note: Vera paralela; pré-requisito ainda aberto
+  - day: SÁB 19
+    objective: Recuperar catálogo da Loja de Ferramentas
+    actions:
+    - index: '01'
+      text: Recuperar catálogo e preços aprovados
+      ref: EXE-136
+    - index: '02'
+      text: Configurar credenciais dos adaptadores
+      ref: EXE-72
+    - index: '03'
+      text: Testar atualização idempotente
+      ref: EXE-73
+    deliverables:
+    - text: Catálogo Loja registrado
+      evidence_ref: EXE-136
+    - text: Adaptador em teste
+      evidence_ref: EXE-73
+    note: Runner permanece sem data forçada
+  review:
+    mode: scheduled
+    scheduled_for: 19/09
+    progress: Consolidar avanço no fechamento semanal
+    carryover: Definir continuidade no fechamento semanal
+  next_week:
+    label: Ciclo 1 · 21–27/09
+    priorities:
+    - text: Publicar pacote digital do TDAH Adulto
+    - text: Fechar unit economics antes do Ciclo 3
+      ref: GAP-018
+    - text: Fechar Runner e sincronização com GitHub
+      refs:
+      - EXE-74
+      - EXE-75
+    risks:
+    - text: Decidir conta Google Play até 01/12
+      ref: DEC-005
+      evidence: 12 testadores por 14 dias
+  compliance:
+    no_inference: true
+    source_refs_required: true
+    exceptions:
+    - id: PEND-01
+      text: Campanha Beta sem fase própria
+      source: D07-DOC-PIM-001
+    - id: PEND-02
+      text: Betas paralelos com pré-requisitos abertos
+      refs:
+      - EXE-121
+      - EXE-131
+      - EXE-136

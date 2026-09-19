@@ -1,0 +1,35 @@
+{
+  "name": "weekly-sprint",
+  "displayName": "Sprint operacional semanal",
+  "version": "1.0.0",
+  "description": "Coleta evidência de projeto, normaliza sob limites de palavra e gera a folha A4 do sprint semanal em PDF vetorial.",
+  "keywords": ["sprint", "linear", "pdf", "relatorio-semanal"],
+  "author": {
+    "name": "Sistema Operacional do SaaS"
+  },
+  "license": "MIT",
+  "mcpServers": "./.mcp.json",
+  "hooks": "./hooks/hooks.json",
+  "userConfig": {
+    "linear_api_key": {
+      "type": "string",
+      "title": "Chave da API do Linear",
+      "description": "Usada para ler issues e ciclos. Somente leitura é suficiente.",
+      "sensitive": true,
+      "required": true
+    },
+    "linear_team_key": {
+      "type": "string",
+      "title": "Chave do time no Linear",
+      "description": "Prefixo dos identificadores de issue, ex.: EXE.",
+      "default": "EXE",
+      "required": true
+    },
+    "github_repository": {
+      "type": "string",
+      "title": "Repositório de evidência",
+      "description": "owner/repo de onde vêm commits e PRs que citam as issues. Opcional.",
+      "required": false
+    }
+  }
+}

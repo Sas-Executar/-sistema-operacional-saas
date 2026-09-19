@@ -1,0 +1,369 @@
+/*
+ * Geometria da folha — A4 paisagem.
+ *
+ * Esta folha de estilo é a autoridade do layout. React monta a árvore; as
+ * medidas vivem aqui, e todas em unidades físicas (mm, pt). Não há `px` em
+ * nenhuma medida de geometria ou tipografia.
+ *
+ * Proibições que vêm do contrato (`overflow.font_shrink: false`,
+ * `typography.shrink_to_fit: false`):
+ *   - nada de `transform: scale()` para caber
+ *   - nada de `vw`, `vh`, `clamp()` ou `calc()` com viewport em tamanho de fonte
+ *   - nada de `text-overflow: ellipsis` ou `overflow: hidden` que esconda texto
+ *
+ * Conteúdo que não couber deve ESTOURAR VISIVELMENTE, para o gate de estouro
+ * (tests/e2e/layout.spec.ts) reprovar o build. Esconder o estouro transformaria
+ * uma falha de contrato em defeito silencioso.
+ */
+
+@page {
+  size: 297mm 210mm;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #f4f4f5;
+}
+
+/* ---------------------------------------------------------------- folha -- */
+
+.sheet {
+  width: var(--sheet-width);
+  height: var(--sheet-height);
+  padding: var(--safe-margin);
+  background: #ffffff;
+  color: var(--text-primary);
+  font-family: var(--font-sheet);
+  font-feature-settings: "tnum" 1; /* algarismos tabulares: datas alinham */
+  display: flex;
+  flex-direction: column;
+  overflow: visible; /* estouro precisa ser visível para o gate detectar */
+}
+
+/* Somente na tela: centraliza a folha e dá contraste de mesa. */
+@media screen {
+  .sheet {
+    margin: 8mm auto;
+    box-shadow: 0 0 0 0.25pt var(--rule-guide);
+  }
+}
+
+@media print {
+  html,
+  body {
+    background: #ffffff;
+  }
+  .sheet {
+    margin: 0;
+    box-shadow: none;
+  }
+}
+
+/* --------------------------------------------------------------- header -- */
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-related);
+  padding-bottom: var(--space-base);
+  flex: 0 0 auto;
+}
+
+.header__title {
+  font-size: var(--title-size);
+  font-weight: var(--title-weight);
+  line-height: var(--title-leading);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.header__meta {
+  font-size: var(--metadata-size);
+  font-weight: var(--metadata-weight);
+  line-height: var(--metadata-leading);
+  color: var(--text-metadata);
+  display: flex;
+  gap: var(--space-related);
+  white-space: nowrap;
+}
+
+/* ------------------------------------------------------------ meta da semana */
+
+.weekgoal {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-label);
+  padding-bottom: var(--space-base);
+  border-top: 0.25pt solid var(--rule-guide);
+  flex: 0 0 auto;
+}
+
+.weekgoal__label {
+  font-size: var(--section-size);
+  font-weight: var(--section-weight);
+  line-height: var(--section-leading);
+  color: var(--text-metadata);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+/* `week_goal` não tem papel tipográfico no contrato; usa o papel `day`.
+   Ver a tabela de mapeamento em src/lib/tokens.ts. */
+.weekgoal__text {
+  font-size: var(--day-size);
+  font-weight: var(--day-weight);
+  line-height: var(--day-leading);
+  margin: 0;
+}
+
+/* ----------------------------------------------------------------- dias -- */
+
+.days {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+  gap: var(--gutter);
+  padding-top: 0;
+  align-items: stretch;
+  min-height: 0; /* deixa o grid encolher sem empurrar o rodapé para fora */
+}
+
+.day {
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* permite quebra de linha dentro da coluna */
+  height: 100%;
+}
+
+.day__name {
+  font-size: var(--day-size);
+  font-weight: var(--day-weight);
+  line-height: var(--day-leading);
+  padding-bottom: var(--space-base);
+  border-bottom: 0.5pt solid var(--text-primary);
+  margin-bottom: var(--space-base);
+}
+
+/*
+ * `objective` sem papel definido no contrato; usa `deliverable` (11pt/500).
+ * Reduzir para 10pt foi testado e NÃO economiza linha: a quebra é ditada pelos
+ * limites de palavra ("Fechar corpus e / controle da Fase / Zero"), não pela
+ * contagem de caracteres. Ficou em 11pt, que preserva a hierarquia sobre as
+ * ações pelo mesmo custo de altura.
+ */
+.day__objective {
+  font-size: var(--deliverable-size);
+  font-weight: var(--deliverable-weight);
+  line-height: var(--deliverable-leading);
+  margin: 0 0 var(--space-base) 0;
+  /* Hifenização evita que uma palavra longa force estouro horizontal numa
+     coluna de ~35mm. Quebra de palavra é permitida; encolher a fonte não é. */
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+.section-label {
+  font-size: var(--section-size);
+  font-weight: var(--section-weight);
+  line-height: var(--section-leading);
+  color: var(--text-metadata);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-base);
+}
+
+.actions {
+  list-style: none;
+  margin: 0 0 var(--space-base) 0;
+  padding: 0;
+}
+
+.action {
+  font-size: var(--task-size);
+  font-weight: var(--task-weight);
+  line-height: var(--task-leading);
+  margin-bottom: var(--space-base);
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+.action__index {
+  color: var(--text-metadata);
+  font-variant-numeric: tabular-nums;
+  font-size: var(--metadata-size);
+}
+
+/* A referência de origem fica junto da ação, em metadata. `provenance_required`
+   exige que ela apareça: é o que liga a folha impressa à evidência. */
+.action__ref {
+  font-size: var(--metadata-size);
+  color: var(--text-metadata);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.deliverables {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Sem caixa de marcação. Um checkbox custaria ~4,5mm de recuo — 13% da largura
+ * de uma coluna de 34,7mm — empurrando entregas para uma linha a mais. Também
+ * seria decoração que o contrato não pede (`decoration: minimal`,
+ * `structural_borders: none`).
+ */
+.deliverable {
+  font-size: var(--deliverable-size);
+  font-weight: var(--deliverable-weight);
+  line-height: var(--deliverable-leading);
+  margin-bottom: var(--space-base);
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+/* `note` sem papel definido no contrato; usa `metadata`. */
+.day__note {
+  margin-top: auto; /* ancora a nota no pé da coluna, e já a separa */
+  font-size: var(--metadata-size);
+  line-height: var(--metadata-leading);
+  color: var(--text-secondary);
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+/* Coluna de calendário sem conteúdo. Sem texto inventado: só a moldura. */
+.day--empty .day__name {
+  color: var(--placeholder);
+  border-bottom-color: var(--rule-guide);
+}
+
+.day--empty .day__blank {
+  flex: 1 1 auto;
+  border-left: 0.25pt solid var(--rule-guide);
+  margin-left: 0;
+}
+
+/* ---------------------------------------------------------------- rodapé -- */
+
+/*
+ * `review` e `next_week` dividem uma faixa lado a lado em vez de empilhar.
+ * Empilhar consumiria ~124pt do orçamento vertical contra ~54pt; lado a lado
+ * preserva a folga da faixa de dias e mantém a folha em uma página.
+ */
+.footer {
+  display: grid;
+  /*
+   * Três blocos de largura igual: fechamento, prioridades e riscos. Espremer
+   * tudo em dois blocos fazia cada linha quebrar em duas ou três — o rodapé
+   * chegava a 102pt. Com ~87mm por bloco quase toda linha cabe inteira, e a
+   * faixa cai para ~58pt, devolvendo a folga que as colunas de dia precisam.
+   */
+  /*
+   * Larguras proporcionais ao conteúdo medido de cada bloco, não iguais: o
+   * fechamento tem frases médias, as prioridades são as linhas mais longas
+   * (uma delas com duas referências) e os riscos correm em 8pt. Com blocos
+   * iguais, prioridades e fechamento quebravam linha e o rodapé chegava a
+   * 97pt, comendo a folga das colunas de dia.
+   */
+  grid-template-columns: 1.2fr 1.3fr 0.9fr;
+  gap: var(--gutter);
+  padding-top: var(--space-base);
+  border-top: 0.5pt solid var(--text-primary);
+  flex: 0 0 auto;
+}
+
+.footer__block {
+  min-width: 0;
+}
+
+.footer__row {
+  font-size: var(--task-size);
+  font-weight: var(--task-weight);
+  line-height: var(--task-leading);
+  margin: 0 0 var(--space-base) 0;
+  overflow-wrap: break-word;
+}
+
+.footer__term {
+  color: var(--text-metadata);
+  font-size: var(--metadata-size);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-right: var(--space-label);
+}
+
+.priorities {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.priority {
+  font-size: var(--task-size);
+  line-height: var(--task-leading);
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+.priority__ref,
+.risk__ref {
+  font-size: var(--metadata-size);
+  color: var(--text-metadata);
+  font-variant-numeric: tabular-nums;
+}
+
+.risk__label {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-metadata);
+}
+
+.risks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.risk {
+  font-size: var(--metadata-size);
+  line-height: var(--metadata-leading);
+  color: var(--text-secondary);
+  overflow-wrap: break-word;
+}
+
+/* Tira de pendências: uma linha, largura total da folha. */
+.exceptions {
+  margin: 0;
+  padding-bottom: var(--space-base);
+  font-size: var(--metadata-size);
+  line-height: var(--metadata-leading);
+  color: var(--text-metadata);
+  flex: 0 0 auto;
+}
+
+.exceptions__label {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-right: var(--space-label);
+}
+
+.exception__id {
+  font-variant-numeric: tabular-nums;
+  margin-right: var(--space-base);
+  color: var(--text-secondary);
+}
+
+.exception__sep {
+  color: var(--rule-guide);
+}
