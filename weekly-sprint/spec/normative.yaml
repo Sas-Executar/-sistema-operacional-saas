@@ -1,0 +1,201 @@
+spec:
+  name: weekly-operational-sprint
+  version: 1.1.0
+  purpose: relatório semanal determinístico gerado por agente de IA para mesa e impressão
+principles:
+  hierarchy: apple_hig_semantic_roles
+  grid: geist_alignment
+  spacing: fluent_4pt
+  mode: deterministic
+  decoration: minimal
+  cards: none
+  structural_borders: none
+content_contract:
+  source_of_truth: project_sources
+  no_inference: true
+  provenance_required: true
+  week_goal:
+    preferred_words: 4
+    max_words: 7
+  objective:
+    preferred_words: 4
+    max_words: 7
+    pattern: verbo + resultado
+  actions:
+    count: 3
+    preferred_words: 4
+    max_words: 7
+    pattern: verbo + objeto + resultado
+  deliverables:
+    min_items: 1
+    max_items: 3
+    preferred_words: 2
+    max_words: 3
+    pattern: resultado nominal
+  note:
+    preferred_words: 4
+    max_words: 7
+  review:
+    max_words_per_field: 7
+    modes:
+    - scheduled
+    - closed
+  next_week:
+    priorities: 3
+    max_words_each: 7
+    # Extensões declaradas (não estavam no contrato 1.1.0).
+    # O fixture traz estes campos; limitá-los por analogia a max_words_each
+    # é uma regra explícita, não uma inferência silenciosa.
+    label:
+      max_words: 7
+      declared_extension: true
+    risks:
+      max_words_each: 7
+      declared_extension: true
+  compliance:
+    exceptions:
+      max_words_each: 7
+      declared_extension: true
+overflow:
+  font_shrink: false
+  truncate: false
+  cross_column: false
+  reflow_days: false
+  resolution_order:
+  - preserve meaning and deliverable
+  - remove modifiers
+  - compress expression
+  - regenerate text
+  failure_policy: reject_and_regenerate
+canvas:
+  medium: print
+  sheet: A4_landscape
+  size_mm:
+  - 297
+  - 210
+  safe_margin_mm: 12
+  bleed_mm: 0
+  composition: responsive_week_grid
+  background: paper_white
+grid:
+  layout: repeat(day_count, minmax(0, 1fr))
+  supported_day_count:
+  - 7
+  day_count_source: calendar_frame
+  blank_slot_policy: render_empty_column
+  gutter_mm: 5
+  baseline_pt: 4
+  align_horizontal: strict
+  align_vertical: baseline
+  optical_adjustment_pt: 1
+  rule: semana completa de 7 colunas; dias sem conteúdo ficam em branco; nunca comprimir texto para preservar a grade
+spacing:
+  system: fluent
+  base_pt: 4
+  scale_pt:
+  - 4
+  - 8
+  - 12
+  - 16
+  - 24
+  - 32
+  - 48
+  label_to_content: 8
+  related_items: 12
+  block_gap: 24
+  section_gap: 32
+  major_gap: 48
+typography:
+  family_role: licensed_neutral_sans
+  title:
+    size_pt: 19
+    weight: 600
+    leading_pt: 24
+  day:
+    size_pt: 14
+    weight: 600
+    leading_pt: 18
+  section:
+    size_pt: 9
+    weight: 500
+    leading_pt: 12
+  task:
+    size_pt: 10
+    weight: 400
+    leading_pt: 14
+  deliverable:
+    size_pt: 11
+    weight: 500
+    leading_pt: 14
+  metadata:
+    size_pt: 8
+    weight: 400
+    leading_pt: 10
+  min_text_pt: 8
+  shrink_to_fit: false
+color:
+  text_primary: K100
+  text_secondary: K65
+  metadata: K50
+  placeholder: K30
+  guide: K15
+  accent:
+    allowed: true
+    max_coverage_percent: 8
+    meaning_by_color_only: false
+layout:
+  order:
+  - header
+  - week_goal
+  - days
+  - weekly_close
+  - next_week
+  day_structure:
+  - day
+  - objective
+  - actions
+  - deliverables
+  - note
+  hierarchy_by:
+  - typography
+  - whitespace
+  - alignment
+print:
+  paper: sulfite branco 75-90 g/m2
+  default_output: office_pdf
+  vector_first: true
+  raster_ppi: 300
+  black_text: K100
+  fonts_embedded: true
+  crop_marks: false
+  grayscale_safe: true
+  commercial_press:
+    optional: true
+    requires_prepress_profile_and_pdfx_validation: true
+validation:
+  required:
+  - schema_valid
+  - source_refs_present
+  - word_limits_pass
+  - three_actions_per_day
+  - no_illegal_overflow
+  - baseline_aligned
+  - grayscale_legible
+  tests:
+    print_100_percent: true
+    office_printer: true
+    reduction_85_percent: true
+    semantic_consistency: true
+runtime:
+  pipeline:
+  - collect sources
+  - extract facts
+  - normalize copy
+  - validate schema
+  - render preview
+  - render PDF
+  - archive artifact
+  renderer: HTML/CSS print layout
+  preview: React/Next.js optional shell
+  pdf_engine: Chromium/Playwright
+  single_source: normalized YAML/JSON

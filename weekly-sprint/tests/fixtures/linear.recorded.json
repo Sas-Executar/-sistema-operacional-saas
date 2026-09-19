@@ -1,0 +1,205 @@
+{
+  "_comment": "Gravado da API real do Linear (team Executar-Rotina, projeto 'EXECUTAR — Plano integrado 14-09') em 2026-09-14. Nenhum campo foi inventado: títulos, identificadores, datas e rótulos são os da fonte. Serve para testar os adaptadores sem rede e sem credencial.",
+  "sprintId": "SEMANA_01",
+  "from": "2026-09-14",
+  "to": "2026-09-20",
+  "cycleName": "Ciclo 1",
+  "projectName": "EXECUTAR — Plano integrado 14-09",
+  "tasks": [
+    {
+      "id": "EXE-59",
+      "title": "D07-TASK-140003 — Publicar matriz e checkpoint de retomada",
+      "dueDate": "2026-09-14",
+      "status": "Todo",
+      "labels": [],
+      "url": "https://linear.app/executar-rotina/issue/EXE-59",
+      "parentId": "EXE-29"
+    },
+    {
+      "id": "EXE-60",
+      "title": "D07-TASK-140004 — Verificar referências e espelhos externos",
+      "dueDate": "2026-09-14",
+      "status": "Todo",
+      "labels": [],
+      "url": "https://linear.app/executar-rotina/issue/EXE-60",
+      "parentId": "EXE-29"
+    },
+    {
+      "id": "EXE-61",
+      "title": "D12-TASK-140010 — Inventariar nomes de variáveis por app e pacote",
+      "dueDate": "2026-09-14",
+      "status": "Todo",
+      "labels": [],
+      "url": "https://linear.app/executar-rotina/issue/EXE-61",
+      "parentId": "EXE-29"
+    },
+    {
+      "id": "EXE-62",
+      "title": "D12-TASK-140011 — Confirmar projeto e ambiente de cada variável",
+      "dueDate": "2026-09-15",
+      "status": "Todo",
+      "labels": [],
+      "url": "https://linear.app/executar-rotina/issue/EXE-62",
+      "parentId": "EXE-30"
+    },
+    {
+      "id": "EXE-63",
+      "title": "D12-TASK-140012 — Comparar schema com presença de valores sem expor segredos",
+      "dueDate": "2026-09-15",
+      "status": "Todo",
+      "labels": [],
+      "url": "https://linear.app/executar-rotina/issue/EXE-63",
+      "parentId": "EXE-30"
+    },
+    {
+      "id": "EXE-64",
+      "title": "D12-TASK-140013 — Testar credenciais em chamadas sem efeito financeiro",
+      "dueDate": "2026-09-15",
+      "status": "Todo",
+      "labels": [],
+      "url": "https://linear.app/executar-rotina/issue/EXE-64",
+      "parentId": "EXE-30"
+    },
+    {
+      "id": "EXE-65",
+      "title": "D12-TASK-140014 — Registrar autenticações e decisões humanas ainda necessárias",
+      "dueDate": "2026-09-16",
+      "status": "Todo",
+      "labels": [],
+      "url": "https://linear.app/executar-rotina/issue/EXE-65",
+      "parentId": "EXE-30"
+    },
+    {
+      "id": "EXE-121",
+      "title": "D16-TASK-140130 — Recuperar CMS e posicionamento de cada blog",
+      "dueDate": "2026-09-16",
+      "status": "Todo",
+      "labels": ["Semana Crítica"],
+      "url": "https://linear.app/executar-rotina/issue/EXE-121"
+    },
+    {
+      "id": "EXE-66",
+      "title": "D01-TASK-140020 — Recuperar pricing e planos financeiros originais",
+      "dueDate": "2026-09-16",
+      "status": "Todo",
+      "labels": [],
+      "url": "https://linear.app/executar-rotina/issue/EXE-66",
+      "parentId": "EXE-30"
+    },
+    {
+      "id": "EXE-67",
+      "title": "D01-TASK-140021 — Consolidar CAPEX e OPEX sem somar custo compartilhado duas vezes",
+      "dueDate": "2026-09-17",
+      "status": "Todo",
+      "labels": [],
+      "url": "https://linear.app/executar-rotina/issue/EXE-67",
+      "parentId": "EXE-31"
+    },
+    {
+      "id": "EXE-68",
+      "title": "D01-TASK-140022 — Relacionar identidade visual, copy, logos e direitos por rota",
+      "dueDate": "2026-09-17",
+      "status": "Todo",
+      "labels": [],
+      "url": "https://linear.app/executar-rotina/issue/EXE-68",
+      "parentId": "EXE-31"
+    },
+    {
+      "id": "EXE-69",
+      "title": "D01-TASK-140023 — Preparar campos de loja e dados institucionais em local restrito",
+      "dueDate": "2026-09-17",
+      "status": "Todo",
+      "labels": [],
+      "url": "https://linear.app/executar-rotina/issue/EXE-69",
+      "parentId": "EXE-31"
+    },
+    {
+      "id": "EXE-70",
+      "title": "D01-TASK-140024 — Fechar escopo, responsáveis, limites de custo e autorização de release",
+      "dueDate": "2026-09-18",
+      "status": "Todo",
+      "labels": [],
+      "url": "https://linear.app/executar-rotina/issue/EXE-70",
+      "parentId": "EXE-31"
+    },
+    {
+      "id": "EXE-131",
+      "title": "D10-TASK-140150 — Resolver nome e domínio pela configuração real",
+      "dueDate": "2026-09-18",
+      "status": "Todo",
+      "labels": ["Semana Crítica"],
+      "url": "https://linear.app/executar-rotina/issue/EXE-131"
+    },
+    {
+      "id": "EXE-71",
+      "title": "D08-TASK-140030 — Vincular fase, tarefa, commit, PR e evidência por ID",
+      "dueDate": "2026-09-18",
+      "status": "Todo",
+      "labels": [],
+      "url": "https://linear.app/executar-rotina/issue/EXE-71",
+      "parentId": "EXE-31"
+    },
+    {
+      "id": "EXE-136",
+      "title": "D14-TASK-140160 — Recuperar catálogo, preços e condições aprovadas",
+      "dueDate": "2026-09-19",
+      "status": "Todo",
+      "labels": ["Semana Crítica"],
+      "url": "https://linear.app/executar-rotina/issue/EXE-136"
+    },
+    {
+      "id": "EXE-72",
+      "title": "D08-TASK-140031 — Configurar credenciais limitadas para os adaptadores",
+      "dueDate": "2026-09-19",
+      "status": "Todo",
+      "labels": [],
+      "url": "https://linear.app/executar-rotina/issue/EXE-72",
+      "parentId": "EXE-32"
+    },
+    {
+      "id": "EXE-73",
+      "title": "D08-TASK-140032 — Aplicar atualização idempotente por source_task_id",
+      "dueDate": "2026-09-19",
+      "status": "Todo",
+      "labels": [],
+      "url": "https://linear.app/executar-rotina/issue/EXE-73",
+      "parentId": "EXE-32"
+    }
+  ],
+  "phases": [
+    {
+      "id": "EXE-29",
+      "code": "D07-PH-1400",
+      "title": "D07-PH-1400 — Fase Zero — corpus, contrato e controle — opus/high",
+      "status": "Todo",
+      "labels": ["Semana Crítica", "Fase Zero"]
+    },
+    {
+      "id": "EXE-30",
+      "code": "D07-PH-1401",
+      "title": "D07-PH-1401 — Fase Zero — ambientes e identidades — opus/high",
+      "status": "Todo",
+      "labels": ["Semana Crítica", "Fase Zero"]
+    },
+    {
+      "id": "EXE-31",
+      "code": "D07-PH-1402",
+      "title": "D07-PH-1402 — Fase Zero — contratos, orçamento e assets — opus/high",
+      "status": "Todo",
+      "labels": ["Semana Crítica", "Fase Zero"]
+    },
+    {
+      "id": "EXE-32",
+      "code": "D07-PH-1403",
+      "title": "D07-PH-1403 — Fase Zero — Runner e espelhos — opus/high",
+      "status": "Todo",
+      "labels": ["Semana Crítica", "Fase Zero"]
+    }
+  ],
+  "evidence": [],
+  "provenance": [
+    "linear:team=EXE",
+    "linear:dueDate=2026-09-14..2026-09-20",
+    "linear:project=EXECUTAR — Plano integrado 14-09"
+  ]
+}

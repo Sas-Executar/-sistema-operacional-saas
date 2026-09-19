@@ -1,0 +1,124 @@
+# SEMANA 01 — Sprint operacional
+# Preenchido conforme o contrato de conteúdo definido por você.
+# Fontes: Fase Zero (D07-PH-1400 a 1403, Linear EXE-29/30/31/32) +
+#         caminho crítico da semana (Blog/Vera/Loja de Ferramentas, Linear EXE-121/131/136) +
+#         tema por dia do corpus original (ROADMAP.md, Sprint 01, CORPUS_DIRECT).
+# Nenhum item abaixo foi inventado: cada ação referencia uma issue real do Linear.
+# Itens sem lastro no corpus (ex.: Campanha de Lançamento 01) estão marcados como PENDÊNCIA, não preenchidos por inferência.
+
+sprint:
+  title: "Sprint operacional — Semana 01"
+  period: "14–19 set"
+  week_goal: "Fechar Fase Zero e destravar quatro betas paralelos"
+  days:
+    - day: "SEG 14"
+      objective: "Fechar corpus e controle da Fase Zero"
+      actions:
+        - index: "01"
+          text: "Publicar matriz e checkpoint de retomada"
+          ref: "EXE-59"
+        - index: "02"
+          text: "Verificar espelhos e referências externas"
+          ref: "EXE-60"
+        - index: "03"
+          text: "Inventariar variáveis por app e pacote"
+          ref: "EXE-61"
+      delivery: "Matriz publicada; D07-PH-1400 encerrada"
+      notes: "Abre a semana. Sem pré-requisito pendente."
+
+    - day: "TER 15"
+      objective: "Mapear ambientes sem expor segredo"
+      actions:
+        - index: "01"
+          text: "Confirmar ambiente de cada variável"
+          ref: "EXE-62"
+        - index: "02"
+          text: "Comparar schema sem expor segredos"
+          ref: "EXE-63"
+        - index: "03"
+          text: "Testar credenciais sem efeito financeiro"
+          ref: "EXE-64"
+      delivery: "Ambientes mapeados; risco de segredo eliminado"
+      notes: "Tema do corpus: Executar App Fase 0."
+
+    - day: "QUA 16"
+      objective: "Lançar Blog TDAH Adulto em beta"
+      actions:
+        - index: "01"
+          text: "Registrar decisões humanas pendentes"
+          ref: "EXE-65"
+        - index: "02"
+          text: "Recuperar CMS de cada blog"
+          ref: "EXE-121"
+        - index: "03"
+          text: "Recuperar pricing e planos originais"
+          ref: "EXE-66"
+      delivery: "CMS do Blog mapeado; D07-PH-1401 encerrada"
+      notes: "Semana Crítica: Blog entra em paralelo à Fase Zero, com pré-requisito de tarefa ainda aberto (ver pendência 2)."
+
+    - day: "QUI 17"
+      objective: "Fechar orçamento e identidade de marca"
+      actions:
+        - index: "01"
+          text: "Consolidar CAPEX e OPEX sem duplicar"
+          ref: "EXE-67"
+        - index: "02"
+          text: "Relacionar identidade visual e direitos"
+          ref: "EXE-68"
+        - index: "03"
+          text: "Preparar dados institucionais restritos"
+          ref: "EXE-69"
+      delivery: "Orçamento fechado; identidade visual relacionada"
+      notes: "PENDÊNCIA: 'Campanha de Lançamento 01 BETA' é tema do dia no corpus original, mas não tem fase própria no D07-DOC-PIM-001 — não preenchido por inferência (ver pendência 1)."
+
+    - day: "SEX 18"
+      objective: "Decidir identidade da Vera e liberar release"
+      actions:
+        - index: "01"
+          text: "Fechar escopo e autorização de release"
+          ref: "EXE-70"
+        - index: "02"
+          text: "Resolver nome e domínio da Vera"
+          ref: "EXE-131"
+        - index: "03"
+          text: "Vincular fase, commit e evidência por ID"
+          ref: "EXE-71"
+      delivery: "D07-PH-1402 encerrada; nome da Vera decidido"
+      notes: "Semana Crítica: Vera entra em paralelo, com pré-requisito de tarefa ainda aberto (ver pendência 2)."
+
+    - day: "SÁB 19"
+      objective: "Recuperar catálogo da Loja de Ferramentas"
+      actions:
+        - index: "01"
+          text: "Recuperar catálogo e preços aprovados"
+          ref: "EXE-136"
+        - index: "02"
+          text: "Configurar credenciais dos adaptadores"
+          ref: "EXE-72"
+        - index: "03"
+          text: "Testar atualização idempotente"
+          ref: "EXE-73"
+      delivery: "Catálogo da Loja registrado; adaptador Matrix↔Linear em teste"
+      notes: "Restam EXE-74 e EXE-75 (Runner) para fechar D07-PH-1403 — sem data forçada; continuam sem due date até ficarem prontas."
+
+  review:
+    progress: "A DEFINIR — preencher em 19/09, ao fechar a semana"
+    carryover: "A DEFINIR — preencher em 19/09, ao fechar a semana"
+
+  next_week:
+    label: "Prioridades do Ciclo 1 (21–27/09) — Gerenciando o TDAH Adulto, pacote digital"
+    priorities:
+      - "Publicar pacote digital do TDAH Adulto"
+      - "Fechar unit economics antes do Ciclo 3 (GAP-018)"
+      - "Fechar Runner e sincronização com GitHub (EXE-74/75)"
+    risks:
+      - "Google Play exige 12 testadores por 14 dias — decidir conta até 01/12 (DEC-005)"
+
+# ---
+# Pendências identificadas ao preencher esta semana (não resolvidas por inferência):
+# 1. "Campanha de Lançamento 01 BETA" é tema de quinta-feira no corpus original,
+#    mas não existe fase, tarefa ou dono no D07-DOC-PIM-001. Precisa de uma decisão sua:
+#    criar uma fase nova, ou tratar como já coberto por D07-PH-1419/1420 (conteúdo/instrumentação).
+# 2. EXE-121 (Blog), EXE-131 (Vera) e EXE-136 (Loja) foram colocadas nesta semana por mandato seu
+#    de caminho crítico paralelo, mas o próprio D07 declara pré-requisitos de tarefa ainda não
+#    prontos para as três (ver AUDITORIA_REORGANIZACAO_LINEAR.md, seção 6). Mantidas aqui como exceção.
