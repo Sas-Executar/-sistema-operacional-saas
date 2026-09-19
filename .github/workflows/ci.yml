@@ -1,0 +1,59 @@
+name: CI — weekly-sprint
+
+# Verificação de todo PR que toca weekly-sprint/.
+#
+# Roda o que qualquer contribuidor rodaria localmente antes de pedir revisão:
+# typecheck, testes de contrato (Vitest) e o gate de estouro + seletibilidade
+# do PDF (Playwright). Não toca fontes vivas nem precisa de credencial — usa
+# só o fixture gravado, então roda em qualquer PR, de qualquer autor.
+
+on:
+  pull_request:
+    paths:
+      - "weekly-sprint/**"
+      - ".github/workflows/ci.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: weekly-sprint
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: weekly-sprint/package-lock.json
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Typecheck
+        run: npx tsc --noEmit
+
+      - name: Testes de contrato (schema, palavras, validadores, calendário, adaptadores, portão do agente)
+        run: npx vitest run
+
+      - name: Instalar Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Construir a aplicação
+        run: npx next build
+
+      - name: Gate de estouro e seletibilidade do PDF
+        run: npx playwright test
+
+      - name: Publicar artefatos de diagnóstico em falha
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: weekly-sprint/playwright-report/
+          retention-days: 14
