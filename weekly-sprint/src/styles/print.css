@@ -165,9 +165,17 @@ body {
   font-weight: var(--deliverable-weight);
   line-height: var(--deliverable-leading);
   margin: 0 0 var(--space-base) 0;
-  /* Hifenização evita que uma palavra longa force estouro horizontal numa
-     coluna de ~35mm. Quebra de palavra é permitida; encolher a fonte não é. */
-  hyphens: auto;
+  /*
+   * `overflow-wrap` é a rede de segurança para uma palavra maior que a
+   * coluna de ~35mm — quebra o texto sem encolher a fonte.
+   *
+   * Não usamos `hyphens: auto`: depende de dicionário de hifenização do
+   * navegador, e esse suporte variou entre builds do Chromium — o CI
+   * hifenizou de verdade (quebrando "retomada" em "reto-" + "mada" dentro do
+   * PDF extraído), enquanto o Chromium local não tinha o dicionário. Sem
+   * hifenização o texto do PDF fica sempre íntegro, e a geometria medida
+   * (34,7mm por coluna) já comporta a palavra mais longa do fixture sem ela.
+   */
   overflow-wrap: break-word;
 }
 
@@ -192,7 +200,6 @@ body {
   font-weight: var(--task-weight);
   line-height: var(--task-leading);
   margin-bottom: var(--space-base);
-  hyphens: auto;
   overflow-wrap: break-word;
 }
 
@@ -228,7 +235,6 @@ body {
   font-weight: var(--deliverable-weight);
   line-height: var(--deliverable-leading);
   margin-bottom: var(--space-base);
-  hyphens: auto;
   overflow-wrap: break-word;
 }
 
@@ -238,7 +244,6 @@ body {
   font-size: var(--metadata-size);
   line-height: var(--metadata-leading);
   color: var(--text-secondary);
-  hyphens: auto;
   overflow-wrap: break-word;
 }
 
@@ -312,7 +317,6 @@ body {
 .priority {
   font-size: var(--task-size);
   line-height: var(--task-leading);
-  hyphens: auto;
   overflow-wrap: break-word;
 }
 
