@@ -1,3 +1,9 @@
+---
+name: root-readme
+description: Página inicial do repositório — visão geral do sistema operacional do SaaS. Puxe ao chegar no repo por primeira vez.
+alwaysApply: false
+---
+
 # Sistema Operacional do SaaS
 
 Repositório canônico para estratégia, produto, engenharia, documentação e execução do SaaS.
